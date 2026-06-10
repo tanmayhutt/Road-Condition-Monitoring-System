@@ -74,6 +74,9 @@ uint8_t road_event = 0;
 
 uint32_t last_imu_sample = 0;
 uint32_t last_event_time = 0;
+
+char last_lat[16] = "NO_FIX";
+char last_lon[16] = "NO_FIX";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -161,6 +164,8 @@ int main(void)
 
 		  if(myGpsData.fix_quality > 0)
 		  {
+			  strcpy(last_lat, myGpsData.latitude_raw);
+			  strcpy(last_lon, myGpsData.longitude_raw);
 			  sprintf(msg,
 					  "[GPS] UTC:%s | LAT:%s %c | LON:%s %c | SATS:%d | ALT:%s m\r\n",
 					  myGpsData.utc_time,
@@ -256,9 +261,11 @@ int main(void)
 	              pothole_confirm_count = 0;
 
 	              sprintf(msg,
-	                      "[EVENT] POTHOLE | SHOCK:%d | DIST:%lu cm\r\n",
+	                      "[EVENT LOGGED] POTHOLE | SHOCK:%d | DIST:%lu cm | LAT:%s | LON:%s\r\n",
 	                      shock_value,
-	                      distance_avg);
+	                      distance_avg,
+	                      last_lat,
+	                      last_lon);
 
 	              HAL_UART_Transmit(&huart2,
 	                                (uint8_t*)msg,
