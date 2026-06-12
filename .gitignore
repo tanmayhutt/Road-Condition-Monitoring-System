@@ -1,0 +1,47 @@
+# ==========================================
+# Environment Variables & Secrets (CRITICAL)
+# ==========================================
+.env
+*.env
+web-dashboard/.env
+
+# ==========================================
+# Python Backend (web-dashboard)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# ==========================================
+# STM32 Firmware (firmware-stm32-hal)
+# ==========================================
+firmware-stm32-hal/Debug/
+firmware-stm32-hal/Release/
+firmware-stm32-hal/.settings/
+*.o
+*.su
+*.cyclo
+*.d
+*.elf
+*.hex
+*.list
+*.map
+*.mk
+makefile
+
+# ==========================================
+# ESP32 Firmware (firmware-esp32)
+# ==========================================
+firmware-esp32/build/
+*.bin
+
+# ==========================================
+# System & OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
