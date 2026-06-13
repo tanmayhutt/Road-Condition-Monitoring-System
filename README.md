@@ -210,7 +210,7 @@ Raw Accelerometer Output (x, y, z)
 
 ---
 
-### 📏 HC-SR04 — Ultrasonic Road Surface Measurement
+###  HC-SR04 — Ultrasonic Road Surface Measurement
 
 TIM5 hardware input capture measures the echo pulse duration to calculate chassis-to-road distance with microsecond precision:
 
@@ -238,7 +238,7 @@ STM32 GPIO Trigger ──► 10 μs pulse
 
 ---
 
-### 🛰️ NEO-6M — GPS Telemetry
+###  NEO-6M — GPS Telemetry
 
 The GPS module streams **NMEA 0183** sentences continuously. The firmware implements a **ring-buffer producer–consumer** architecture to parse GPS data without ever blocking the main control loop:
 
@@ -275,7 +275,7 @@ UART3 RX Interrupt  ──►  Ring Buffer  (producer — ISR context)
 
 ---
 
-## 💾 Firmware Architecture
+##  Firmware Architecture
 
 The repository ships **two STM32 firmware variants** (HAL-based and bare-metal) alongside the ESP32 gateway sketch.
 
@@ -314,7 +314,7 @@ road_surface_monitor.ino
 
 ---
 
-## 📬 Communication Protocol
+##  Communication Protocol
 
 The STM32 generates structured **ASCII telemetry packets** over UART. Two event types are defined:
 
@@ -349,7 +349,7 @@ Content-Type: application/json
 
 ---
 
-## 🌐 Web Dashboard & Backend
+##  Web Dashboard & Backend
 
 <!--
   ╔══════════════════════════════════════════════════════════════╗
